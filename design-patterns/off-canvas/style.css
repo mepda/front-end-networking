@@ -1,0 +1,114 @@
+/* Common CSS */
+
+body{
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.container{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: block;
+}
+
+.container div {
+  box-sizing: border-box;
+  min-height: 250px;
+  min-width: 150px;
+}
+
+/* .c1, .c2, .c3{
+  width:100%;
+} */
+
+.c1 {
+  color: #ddd;
+  background-color: #003476;
+  -webkit-transform: translate(-250px,0);
+  transform: translate(-250px,0);
+}
+
+.c2 {
+  color: #ddd;
+  background-color: #0062d2;
+  width: 100%;
+  position: absolute;
+}
+
+.c3 {
+  color: #333;
+  background-color: #b4d2f7;
+  left: 100%;
+}
+
+
+.c1, .c3 {
+  position: absolute;
+  width: 250px;
+  height: 100%;
+  /*
+  This is a trick to improve performance on newer versions of Chrome
+  #perfmatters
+  */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: transform 0.4s ease-out;
+
+  z-index: 1;
+}
+
+.c1.open{
+  -webkit-transform: translate(0,0);
+  transform: translate(0,0);
+}
+
+.c3.open {
+  -webkit-transform: translate(-250px,0);
+  transform: translate(-250px,0);
+}
+
+/* .c4 {
+  color: #333;
+  background-color: #d5dfef;
+}
+
+.c5 {
+  color: #333;
+  background-color: #dfe1e5;
+} */
+
+@media (min-width: 500px) {
+  /* If the screen is wider then 500px, use Flexbox */
+  .container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+  }
+  .c1 {
+    position: relative;
+    -webkit-transition: none 0s ease-out;
+    transition: none 0s ease-out;
+    -webkit-transform: translate(0,0);
+    transform: translate(0,0);
+  }
+  .c2 {
+    position: static;
+  }
+}
+
+@media (min-width: 800px) {
+  body {
+    overflow-x: auto;
+  }
+  .c3 {
+    position: relative;
+    left: auto;
+
+    -webkit-transition: none 0s ease-out;
+    transition: none 0s ease-out;
+    -webkit-transform: translate(1,0);
+    transform: translate(1,0);
+  }
+}

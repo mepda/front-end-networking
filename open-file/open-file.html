@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Get text</title>
+  <!--This requires http-server or some other server to work (security issue
+      otherwise) -->
+</head>
+<body>
+  <p class="limerick">Ready for a poem?</p><br>
+  <script>
+    function createElement(element){
+      return document.createElement(element)
+    }
+
+    function appendElement(parent, el){
+      return parent.appendChild(el)
+    }
+    //simulate pause in network loading
+    setTimeout(function(){
+      fetch('./example-text.txt')
+      .then(res => res.text())
+      .then(function(text) {
+        console.log(text)
+        let poem = createElement('p');
+        let parent = document.querySelector(".limerick")
+        poem.innerText = text; //takes style into account (better than innerHTML or textContent in this case)
+        appendElement(parent, poem)
+      })
+    }, 1000)
+
+  </script>
+</body>
+</html>

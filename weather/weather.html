@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Today's Weather</title>
+  <!--TODO look at the script at the bottom and implement a fetch call
+      TODO add more data as more screen size occurs (you can alter
+           the "mostly fluid" design pattern to achieve this)
+      TODO make the CSS look nicer!-->
+  <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+  <div class="container">
+    <div class="city">
+
+    </div>
+    <div class="weather">
+      Today's weather:
+    </div>
+    <div class="high">
+      High:
+    </div>
+    <div class="low">
+      Low:
+    </div>
+    <div class="humidity">
+      Humidity:
+    </div>
+  </div>
+<script>
+function getElementByClass(classname){
+  return document.querySelector("."+classname);
+}
+//https://simple-weather.p.mashape.com/aqi
+let lat, long;
+navigator.geolocation.getCurrentPosition(function(pos){
+  lat = pos.coords.latitude;
+  long = pos.coords.longitude;
+  console.log("Latitude is "+ lat+
+  "and longitude is " + long);
+  /*TODO fetch from 'https://simple-weather.p.mashape.com/weatherdata?lat='+lat+'&lng='+long
+  and pass in your custom header with auth key
+  headers: new Headers({
+    'X-Mashape-Key': 'your-key-here'
+  }), parse the data into json, and then target the classes and update them */
+})
+</script>
+
+</body>

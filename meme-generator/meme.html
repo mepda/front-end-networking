@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="meme.css">
+  <title>Inspirational Memes</title>
+  <!-- TODO: When a buttons pushed, fetch a new quote and style it-->
+  <!-- TODO: Get a random meme image to add to the quote -->
+  <!-- TODO: Stlye this as one of the design patterns we learned about-->
+  <!-- Endpoints are: https://talaikis.com/api/quotes/random/
+                      https://api.imgflip.com/get_memes-->
+  <!-- Note: imgflip returns one big json file, so have to check data
+            size of the array and then choose a random img from there-->
+</head>
+<body>
+  <div class="container">
+    <div class="meme">
+      <img src="giphy.gif" alt="" id="img">
+    </div><br>
+    <div class="quote">
+      <p id="p">Here's a quote</p>
+    </div>
+    <div class="newQuote">
+      <button onclick="memeMash()">Get a new quote</button>
+    </div>
+  </div>
+
+    <script type="text/javascript">
+    const quoteUrl = 'https://talaikis.com/api/quotes/random/';
+    const memeUrl = 'https://api.imgflip.com/get_memes';
+    const otherApi = "https://andruxnet-random-famous-quotes.p.mashape.com/";
+    //other api requires a key and setting headers, check the weather project
+    //if you want to use this other one!
+
+    const p = document.querySelector('#p');
+    const img = document.querySelector('#img');
+    function memeMash(){
+      //implement this!
+    }
+    window.onload = memeMash;
+
+    </script>
+  </body>
+</html>
